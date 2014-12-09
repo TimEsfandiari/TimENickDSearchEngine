@@ -8,7 +8,7 @@ void stopWorder::loadStopWords()
 {
     std::ifstream fin("StopWords.txt");
     if(fin.is_open())
-        std::cout << "File Opened";
+        std::cout << "File Opened" << std::endl;
     std::string word;
     int size = 0;
     while((!fin.eof()) && (fin.is_open()))
@@ -25,19 +25,20 @@ void stopWorder::loadStopWords()
 
 std::string stopWorder::removeStopWords(std::stringstream &wordList)
 {
-    std::string final;
+    stringstream final;
     std::string temp;
     while(!wordList.eof())
     {
         wordList >> temp;
+        clean(temp);
         if(checkIfStop(temp) == false)
-            final += temp + " ";
+            final << temp << " ";
         else
-            final += "";
+            final << " ";
     }
     wordList.clear();
-    wordList >> final;
-    return final;
+    wordList << final.str();
+    return final.str();
 }
 
 bool stopWorder::checkIfStop(std::string word)
@@ -71,4 +72,18 @@ void stopWorder::checkIfLoaded()
         std::cout << "Its EMPTY";
     else
         std::cout << "Its Not Empty";
+}
+
+void stopWorder::clean(string& s)
+{
+    string result;
+    std::remove_copy_if(s.begin(), s.end(),
+                            std::back_inserter(result), //Store output
+                            std::ptr_fun<int, int>(&std::ispunct)
+                           );
+    s = result;
+    char* c = new char[s.size()];
+    strcpy(c, s.c_str());
+    c[stem(c, 0, strlen(c) - 1)] = '\0';
+    s = c;
 }

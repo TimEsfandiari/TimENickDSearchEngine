@@ -21,6 +21,7 @@ class uniqueWords
 {
 public:
     uniqueWords(); //needs major work
+    uniqueWords(const uniqueWords& word);
     uniqueWords(string s);
     void setName(string s);
     string getName();
@@ -40,7 +41,7 @@ public:
     }
     uniqueWords& operator+=(const uniqueWords& rhs)
     {
-        this->docFreqPairs; //this needs to be fixxed;
+        //this needs to be fixxed;
         return *this;
     }
     AVLTree<WordInfo> getDocFreqPairs();

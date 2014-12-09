@@ -14,21 +14,24 @@
 #include "XMLparser.h"
 #include "uniqueWords.h"
 #include "WordInfo.h"
-
+#include <sstream>
+#include "StopWorder.h"
 class QueryProcessor
 {
 public:
     QueryProcessor();
     //~QueryProcessor(); not necessary, no dynamic memory here,though maybe i make xmlparser a pointer/dynamically call it.
-    void establishIndex(char* fileName ); //accepts additional files to add to index if necessary;
+    void establishIndex();
+    void addNewFile(const char* fileName ); //accepts additional files to add to index if necessary;
         //i need to write code to check to see if index was loaded from file, and to handle loading/building/adding file in side the idexer/parser;
     void processManager(int QueryType);  //handles query's from textFile or terminal, accepts int to determine mode.
     uniqueWords returnAndQuery(stringstream& wordList);
-    uniqueWords returnSingleQuery(stringstream& wordList);
+    string returnSingleQuery(stringstream& wordList);
     uniqueWords returnOrQuery(stringstream& wordList);
     void removeNotQuery(string& notWord, stringstream& toBeCleaned);   //remove's documents that contain the notWord from the ss to be cleaned.
 private:
     XMLParser thisParser;
+    stopWorder stopper;
 };
 
 #endif /* defined(__SearchEngine__QueryProcessor__) */

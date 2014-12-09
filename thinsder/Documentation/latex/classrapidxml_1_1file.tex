@@ -1,0 +1,95 @@
+\hypertarget{classrapidxml_1_1file}{\section{rapidxml\+:\+:file$<$ Ch $>$ Class Template Reference}
+\label{classrapidxml_1_1file}\index{rapidxml\+::file$<$ Ch $>$@{rapidxml\+::file$<$ Ch $>$}}
+}
+
+
+Represents data loaded from a file.  
+
+
+
+
+{\ttfamily \#include $<$rapidxml\+\_\+utils.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrapidxml_1_1file_ae881a3cab1fe7152d45c92a8d7606cb3}{file} (const char $\ast$filename)
+\item 
+\hyperlink{classrapidxml_1_1file_a90707ccd991cc392dcf4bef37eed9d1f}{file} (std\+::basic\+\_\+istream$<$ Ch $>$ \&stream)
+\item 
+Ch $\ast$ \hyperlink{classrapidxml_1_1file_af1c71d65862c7af14e4708e32a80c1de}{data} ()
+\item 
+const Ch $\ast$ \hyperlink{classrapidxml_1_1file_aceb8f5ebd577c946a74b1ea3e2e0c576}{data} () const 
+\item 
+std\+::size\+\_\+t \hyperlink{classrapidxml_1_1file_a20191d167c6e00a88a44ca9a3a54e1c5}{size} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Ch = char$>$class rapidxml\+::file$<$ Ch $>$}
+
+Represents data loaded from a file. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classrapidxml_1_1file_ae881a3cab1fe7152d45c92a8d7606cb3}{\index{rapidxml\+::file@{rapidxml\+::file}!file@{file}}
+\index{file@{file}!rapidxml\+::file@{rapidxml\+::file}}
+\subsubsection[{file}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Ch  = char$>$ {\bf rapidxml\+::file}$<$ Ch $>$\+::{\bf file} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrapidxml_1_1file_ae881a3cab1fe7152d45c92a8d7606cb3}
+Loads file into the memory. Data will be automatically destroyed by the destructor. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & Filename to load. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classrapidxml_1_1file_a90707ccd991cc392dcf4bef37eed9d1f}{\index{rapidxml\+::file@{rapidxml\+::file}!file@{file}}
+\index{file@{file}!rapidxml\+::file@{rapidxml\+::file}}
+\subsubsection[{file}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Ch  = char$>$ {\bf rapidxml\+::file}$<$ Ch $>$\+::{\bf file} (
+\begin{DoxyParamCaption}
+\item[{std\+::basic\+\_\+istream$<$ Ch $>$ \&}]{stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrapidxml_1_1file_a90707ccd991cc392dcf4bef37eed9d1f}
+Loads file into the memory. Data will be automatically destroyed by the destructor 
+\begin{DoxyParams}{Parameters}
+{\em stream} & Stream to load from \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classrapidxml_1_1file_af1c71d65862c7af14e4708e32a80c1de}{\index{rapidxml\+::file@{rapidxml\+::file}!data@{data}}
+\index{data@{data}!rapidxml\+::file@{rapidxml\+::file}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Ch  = char$>$ Ch$\ast$ {\bf rapidxml\+::file}$<$ Ch $>$\+::data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrapidxml_1_1file_af1c71d65862c7af14e4708e32a80c1de}
+Gets file data. \begin{DoxyReturn}{Returns}
+Pointer to data of file. 
+\end{DoxyReturn}
+\hypertarget{classrapidxml_1_1file_aceb8f5ebd577c946a74b1ea3e2e0c576}{\index{rapidxml\+::file@{rapidxml\+::file}!data@{data}}
+\index{data@{data}!rapidxml\+::file@{rapidxml\+::file}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Ch  = char$>$ const Ch$\ast$ {\bf rapidxml\+::file}$<$ Ch $>$\+::data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrapidxml_1_1file_aceb8f5ebd577c946a74b1ea3e2e0c576}
+Gets file data. \begin{DoxyReturn}{Returns}
+Pointer to data of file. 
+\end{DoxyReturn}
+\hypertarget{classrapidxml_1_1file_a20191d167c6e00a88a44ca9a3a54e1c5}{\index{rapidxml\+::file@{rapidxml\+::file}!size@{size}}
+\index{size@{size}!rapidxml\+::file@{rapidxml\+::file}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Ch  = char$>$ std\+::size\+\_\+t {\bf rapidxml\+::file}$<$ Ch $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrapidxml_1_1file_a20191d167c6e00a88a44ca9a3a54e1c5}
+Gets file data size. \begin{DoxyReturn}{Returns}
+Size of file data, in characters. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rapidxml__utils_8hpp}{rapidxml\+\_\+utils.\+hpp}\end{DoxyCompactItemize}

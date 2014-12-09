@@ -2,7 +2,6 @@ TEMPLATE = app
 CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
-CONFIG += c++11
 
 SOURCES += main.cpp \
     AVLIndexer.cpp \
@@ -13,7 +12,7 @@ SOURCES += main.cpp \
     VirtualIndexer.cpp \
     WordInfo.cpp \
     XMLparser.cpp \
-    XMLPasser.cpp
+    Stem.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -32,5 +31,5 @@ HEADERS += \
     VirtualIndexer.h \
     WordInfo.h \
     XMLparser.h \
-    XMLPasser.h
+    Stem.h
 

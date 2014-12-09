@@ -16,7 +16,7 @@ IndexDriver::IndexDriver(int i)
     if (i == 0)
         indexer = new AVLIndexer();
     else;
-        //indexer = new HashTableIndexer();
+        //indexer = new HashTable();
 }
 //added int pageNum to this
 void IndexDriver::insert(string word, string SHA1id, int frequency, int pageNum)

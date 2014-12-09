@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <sstream>
 
 using namespace std;
 
@@ -64,6 +65,13 @@ public:
             cout << "List Empty" << endl;
         else
             print(out, root);
+    }
+    void returnFunc(stringstream& s) const
+    {
+        if(isEmpty() == true)
+            cout << "List Empty" <<endl;
+        else
+            returnFunc(s, root);
     }
 private:
     struct AVLNode
@@ -133,7 +141,7 @@ private:
     T& find(const T & x, AVLNode* &root)
     {
         if ( root == NULL)
-            throw logic_error("Element not found");
+            throw logic_error("Element not found // Empty AVLTree");
         else if( x == root->element)
             return root->element;
         else if( x < root->element )
@@ -206,6 +214,15 @@ private:
             print(out, n->left);
             out << n->element << endl;
             print(out, n->right);
+        }
+    }
+    void returnFunc(stringstream& s, AVLNode* n) const
+    {
+        if(n != NULL)
+        {
+            returnFunc(s, n->left);
+            s << n->element << endl;
+            returnFunc(s, n->right);
         }
     }
 };

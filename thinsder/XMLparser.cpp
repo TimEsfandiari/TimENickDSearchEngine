@@ -12,51 +12,34 @@ void XMLParser::fileSplitter()
 {
     //run pearl script to split files
 }
-void XMLParser::readDocuments(char* fileName)
+void XMLParser::readDocuments(const char* fileName, int num)
 {
     file<> xmlFile(fileName);
     xml_document<> doc;
     doc.parse<0>(xmlFile.data());
     xml_node<>* node = doc.first_node();
     node = node->first_node("page");
-    for (int i = 0; i < 1; i++) //because of number of xml files
+    while(node)
     {
-        while(node)
+        string words;
+        string SHA1;
+        xml_node<>* thisPageInfo = node->first_node("revision");
+        words = thisPageInfo->first_node("text")->value();
+        std::stringstream ss;
+        ss << words;
+        ss << stopper.removeStopWords(ss);
+        SHA1 = thisPageInfo->first_node("sha1")->value();
+        while (!ss.eof())
         {
-            string words;
-            string SHA1;
-            xml_node<>* thisPageInfo = node->first_node("revision");
-            words = thisPageInfo->first_node("text")->value();
-            std::stringstream ss;
-            ss << words;
-            //stopper.removeStopWords(ss);
-            words = ss.str();
-            SHA1 = thisPageInfo->first_node("sha1")->value();
-            while (!ss.eof())
-            {
-                //cout << "i made it here" << endl;
-
-                string finalWord;
-                ss >> finalWord;
-                uniqueWords thisWord(finalWord);
-                if(index->isFound(finalWord))
-                {
-                    WordInfo thisWordInfo(SHA1);
-                    index->search(finalWord).find(thisWordInfo).increment();
-                }
-                else
-                {
-                    index->insert(finalWord, SHA1, i, 1); //adds word into index along with SHA1 id and number of xml document info can be found in.
-                }
-                //make sure insert handles double and increasing frequency;
-            }
-            node = node->next_sibling();
+            string finalWord;
+            ss >> finalWord;
+            index->insert(finalWord, SHA1, num, 1); //adds word into index along with SHA1 id and number of xml document info can be found in.
+            index->search(finalWord).print(cout); // just for testing
         }
+        node = node->next_sibling();
+
     }
-}
-void XMLParser::setXMLPasser(XMLPasser& passer)
-{
-    this->passer = passer;
+    cout << "Finished Document" << endl;
 }
 void XMLParser::setStopper(stopWorder& stopper)
 {
@@ -74,6 +57,7 @@ void XMLParser::setDataSetSize(int size)
 //void XMLParser::deleteSplitFiles(); // maybe impliment for stress testing
 string XMLParser::getDocumentInfo(string id) //returns all the info on a Document, based on SHA1 id.
 {
+
     string s = " ";
     
     return s;
@@ -85,5 +69,14 @@ void XMLParser::linkIndex(IndexDriver &indexer)
 
 void XMLParser::printIndex(ostream& ostrm)
 {
-    index->printIndex(ostrm);
+    //index->printIndex(ostrm);
+    index->saveIndex();
+}
+
+string XMLParser::getWordDocuments(string word)
+{
+    stringstream streamy;
+    this->index->search(word).returnFunc(streamy);
+    string s = streamy.str();
+    return s;
 }

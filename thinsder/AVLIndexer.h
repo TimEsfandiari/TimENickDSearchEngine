@@ -14,7 +14,6 @@
 #include "VirtualIndexer.h"
 #include "AVLTree.hpp"
 #include "uniqueWords.h"
-//#include <unordered_map>
 #include <sstream>
 #include "WordInfo.h"
 

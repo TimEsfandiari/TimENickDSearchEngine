@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include "AVLTree.hpp"
+#include "Stem.h"
 #include <string>
 
 class stopWorder
@@ -18,6 +19,7 @@ public:
     bool checkIfStop(std::string word); //returns true if it is a stop word
     bool punctuationCheck(char letter); //returns is character is ! , . ; etc...
     void checkIfLoaded();   //determines if avl tree is loaded
+    void clean(string& s);
 };
 
 #endif // STOPWORDER_H

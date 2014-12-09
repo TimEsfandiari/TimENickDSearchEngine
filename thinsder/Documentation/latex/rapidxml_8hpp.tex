@@ -1,0 +1,103 @@
+\hypertarget{rapidxml_8hpp}{\section{rapidxml.\+hpp File Reference}
+\label{rapidxml_8hpp}\index{rapidxml.\+hpp@{rapidxml.\+hpp}}
+}
+
+
+This file contains rapidxml parser and D\+O\+M implementation.  
+
+
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$cassert$>$}\\*
+{\ttfamily \#include $<$new$>$}\\*
+{\ttfamily \#include $<$exception$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classrapidxml_1_1parse__error}{rapidxml\+::parse\+\_\+error}
+\item 
+class \hyperlink{singletonrapidxml_1_1xml__node}{rapidxml\+::xml\+\_\+node$<$ Ch $>$}
+\item 
+class \hyperlink{singletonrapidxml_1_1xml__attribute}{rapidxml\+::xml\+\_\+attribute$<$ Ch $>$}
+\item 
+class \hyperlink{singletonrapidxml_1_1xml__document}{rapidxml\+::xml\+\_\+document$<$ Ch $>$}
+\item 
+class \hyperlink{classrapidxml_1_1memory__pool}{rapidxml\+::memory\+\_\+pool$<$ Ch $>$}
+\item 
+class \hyperlink{classrapidxml_1_1xml__base}{rapidxml\+::xml\+\_\+base$<$ Ch $>$}
+\item 
+class \hyperlink{singletonrapidxml_1_1xml__attribute}{rapidxml\+::xml\+\_\+attribute$<$ Ch $>$}
+\item 
+class \hyperlink{singletonrapidxml_1_1xml__node}{rapidxml\+::xml\+\_\+node$<$ Ch $>$}
+\item 
+class \hyperlink{singletonrapidxml_1_1xml__document}{rapidxml\+::xml\+\_\+document$<$ Ch $>$}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{rapidxml_8hpp_a65f2be309896ffb841997d467c2f4fff}{\#define {\bfseries R\+A\+P\+I\+D\+X\+M\+L\+\_\+\+P\+A\+R\+S\+E\+\_\+\+E\+R\+R\+O\+R}(what, where)~throw parse\+\_\+error(what, where)}\label{rapidxml_8hpp_a65f2be309896ffb841997d467c2f4fff}
+
+\item 
+\hypertarget{rapidxml_8hpp_a001304844ab478e3b213749fc8d72ca2}{\#define {\bfseries R\+A\+P\+I\+D\+X\+M\+L\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+P\+O\+O\+L\+\_\+\+S\+I\+Z\+E}~(64 $\ast$ 1024)}\label{rapidxml_8hpp_a001304844ab478e3b213749fc8d72ca2}
+
+\item 
+\hypertarget{rapidxml_8hpp_a68d5603b71691d9dd745e45159259aa3}{\#define {\bfseries R\+A\+P\+I\+D\+X\+M\+L\+\_\+\+D\+Y\+N\+A\+M\+I\+C\+\_\+\+P\+O\+O\+L\+\_\+\+S\+I\+Z\+E}~(64 $\ast$ 1024)}\label{rapidxml_8hpp_a68d5603b71691d9dd745e45159259aa3}
+
+\item 
+\hypertarget{rapidxml_8hpp_ad3344fdba5167e17f48a8b2318731198}{\#define {\bfseries R\+A\+P\+I\+D\+X\+M\+L\+\_\+\+A\+L\+I\+G\+N\+M\+E\+N\+T}~sizeof(void $\ast$)}\label{rapidxml_8hpp_ad3344fdba5167e17f48a8b2318731198}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries node\+\_\+type} \{ \\*
+{\bfseries rapidxml\+::node\+\_\+document}, 
+{\bfseries rapidxml\+::node\+\_\+element}, 
+{\bfseries rapidxml\+::node\+\_\+data}, 
+{\bfseries rapidxml\+::node\+\_\+cdata}, 
+\\*
+{\bfseries rapidxml\+::node\+\_\+comment}, 
+{\bfseries rapidxml\+::node\+\_\+declaration}, 
+{\bfseries rapidxml\+::node\+\_\+doctype}, 
+{\bfseries rapidxml\+::node\+\_\+pi}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+no\+\_\+data\+\_\+nodes} = 0x1
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+no\+\_\+element\+\_\+values} = 0x2
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+no\+\_\+string\+\_\+terminators} = 0x4
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+no\+\_\+entity\+\_\+translation} = 0x8
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+no\+\_\+utf8} = 0x10
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+declaration\+\_\+node} = 0x20
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+comment\+\_\+nodes} = 0x40
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+doctype\+\_\+node} = 0x80
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+pi\+\_\+nodes} = 0x100
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+validate\+\_\+closing\+\_\+tags} = 0x200
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+trim\+\_\+whitespace} = 0x400
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+normalize\+\_\+whitespace} = 0x800
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+default} = 0
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+non\+\_\+destructive} = parse\+\_\+no\+\_\+string\+\_\+terminators $\vert$ parse\+\_\+no\+\_\+entity\+\_\+translation
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+fastest} = parse\+\_\+non\+\_\+destructive $\vert$ parse\+\_\+no\+\_\+data\+\_\+nodes
+\item 
+const int {\bfseries rapidxml\+::parse\+\_\+full} = parse\+\_\+declaration\+\_\+node $\vert$ parse\+\_\+comment\+\_\+nodes $\vert$ parse\+\_\+doctype\+\_\+node $\vert$ parse\+\_\+pi\+\_\+nodes $\vert$ parse\+\_\+validate\+\_\+closing\+\_\+tags
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains rapidxml parser and D\+O\+M implementation. 
+

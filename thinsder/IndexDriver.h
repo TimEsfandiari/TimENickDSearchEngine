@@ -14,7 +14,6 @@
 #include "WordInfo.h"
 #include "AVLTree.hpp"
 #include "VirtualIndexer.h"
-//#include "HashTableIndexer.h" later
 
 class IndexDriver
 {

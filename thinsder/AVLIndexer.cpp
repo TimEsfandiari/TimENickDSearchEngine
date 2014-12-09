@@ -15,29 +15,33 @@ AVLIndexer::AVLIndexer()
 }
 AVLIndexer::~AVLIndexer()
 {
-    //indexWords.makeEmpty();
+
 }
 void AVLIndexer::insert(string word, string SHA1id, int frequency, int pageNum)
 {
-    uniqueWords thisWord;
-    thisWord.setName(word);
-    thisWord.setDocFreqPair(SHA1id, frequency, pageNum);
-    indexWords.insert(thisWord);
-    
+    uniqueWords* thisWord = new uniqueWords(word);
+    //uniqueWords thisWord(word);
+    thisWord->setDocFreqPair(SHA1id, frequency, pageNum);
+    if(indexWords.isFound(word))
+    {
+        indexWords.find(word).incrementID(SHA1id);
+    }
+    else
+    {
+        indexWords.insert(*thisWord);
+        //cout << "Inserted Word: " << word << " on page SHA1: " << SHA1id << " with Freq: " << frequency << " in file #" << pageNum << endl;
+    }
 }
 AVLTree<WordInfo> AVLIndexer::search(string word)
 {
-    //uniqueWords thisWord(word);
-    //uniqueWords newWord = indexWords.find(thisWord);
     return this->indexWords.find(word).getDocFreqPairs(); //get docfreqpairs returns a list of instances of the word and frequency on that page.
 }
 void AVLIndexer::deleteIndex()
 {
-    this->indexWords.makeEmpty();
 }
 void AVLIndexer::saveIndex()
 {
-    fstream fout(this->indexSaveFile.c_str());
+    ofstream fout(this->indexSaveFile.c_str());
     if(fout.is_open())
     {
         this->indexWords.print(fout);
@@ -62,4 +66,5 @@ bool AVLIndexer::isFound(string word)
 void AVLIndexer::incrementFrequency(string word, string SHA1, int freq)
 {
     indexWords.find(word).setDocFreqPair(SHA1, freq);
+    cout << "Frequency Increased to: " << indexWords.find(word);
 }

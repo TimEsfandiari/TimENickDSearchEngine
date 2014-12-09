@@ -7,11 +7,15 @@
 //
 
 #include "uniqueWords.h"
+uniqueWords::uniqueWords(const uniqueWords& word)
+{
+    this->name = word.name;
+    this->docFreqPairs = word.docFreqPairs;
+}
 
 uniqueWords::uniqueWords()
 {
     name = "";
-    
 }
 
 void uniqueWords::setName(string s)
@@ -31,8 +35,8 @@ string uniqueWords::getName()
 
 void uniqueWords::setDocFreqPair(string str, int freq , int pageNum)
 {
-    WordInfo thisWordInfo(freq, pageNum, str);
-    docFreqPairs.insert(thisWordInfo);
+    WordInfo* thisWordInfo = new WordInfo(freq, pageNum, str);
+    docFreqPairs.insert(*thisWordInfo);
 }
 
 /*bool uniqueWords::operator==(const uniqueWords& second)
@@ -45,17 +49,22 @@ void uniqueWords::setDocFreqPair(string str, int freq , int pageNum)
 
 AVLTree<WordInfo> uniqueWords::getDocFreqPairs()
 {
-    return docFreqPairs;
+    return this->docFreqPairs;
 }
 
 
 std::ostream& operator<<(std::ostream& os, const uniqueWords& obj)
 {
     os << obj.name;
+    //obj.docFreqPairs.print(os);
+    os << endl;
     return os;
 }
 void uniqueWords::incrementID(string SHA1)
 {
-    WordInfo newInfo(0,0,SHA1);
-    docFreqPairs.find(newInfo).increment();
+    cout << "Incrementing Word: " << this->getName() << "-" << std::flush;
+    if(docFreqPairs.isFound(SHA1))
+        docFreqPairs.find(SHA1).increment();
+    else
+        docFreqPairs.insert(SHA1);
 }
